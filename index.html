@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Personal Budget Tracker</h1>
+        </div>
+        <div class="main-content">
+            <div class="inputs-section">
+                <div class="balance">
+                    <h2>Balance: <span class="balance_amount">0</span></h2>
+                </div>
+                <div class="inputs">
+                    <label for="amount">Amount:</label>
+                    <input placeholder="Enter amount" type="number" id="amount" name="amount">
+                    <label for="description">Description:</label>
+                    <input placeholder="Enter description" type="text" id="description" name="description">
+                    <label for="type">Type:</label>
+                    <select id="type" name="type">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <button id="addBtn">Add</button>
+                    <button id="resetBtn">Reset</button>
+                </div>
+            </div>
+            <div class="report-section">
+                <div class="incomeExpense">
+                    <h3>Income: <span class="incomeAmount">0</span></h3>
+                    <h3>Expense: <span class="expenseAmount">0</span></h3>
+                </div>
+                <div class="chart-container">
+                    <h3>Income vs Expense</h3>
+                    <canvas id="budgetChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="big-gap"></div>
+        <div class="transactions-row">
+            <div class="transactions-section">
+                <h3>Transactions</h3>
+                <button id="exportBtn">Export CSV</button>
+                <input type="file" id="importFile" style="display:none" accept=".csv"/>
+                <button id="importBtn">Import CSV</button>
+                <div id="undoArea" style="text-align:center; margin:10px 0;"></div>
+                <div class="transactions-table-wrapper">
+                    <table id="transactionTable" class="transactions-table"></table>
+                </div>
+            </div>
+            <div class="placeholder-section"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
